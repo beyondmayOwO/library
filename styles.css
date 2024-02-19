@@ -9,6 +9,7 @@ body {
   background-color: #1e1b4b;
 }
 
+/* Header */
 .main-heading {
   color: white;
   font-size: 30px;
@@ -44,4 +45,19 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
+}
+
+/* The grid and the card */
+.places-grid {
+  display: grid;
+  grid-template: 1fr / repeat(5, 1fr);
+  gap: 20px;
+}
+
+.card-image {
+  width: 100px;
+}
+
+.travel-status-icon {
+  width: 20px;
 }
