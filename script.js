@@ -34,19 +34,24 @@ function createCard() {
     cardImage.className = 'card-image';
     cardImage.src = './images/card-image.jpg';
 
-    //City name, country name, region name
+    //City name
     const cityName = document.createElement('div');
     cityName.className = 'city-name';
     cityName.innerText = place.city;
 
+    //Place location (Inside the div --> country name, region name)
+    const placeLocation = document.createElement('div');
+    placeLocation.className = 'place-location';
+
+    //Country name
     const countryName = document.createElement('div');
     countryName.className = 'country-name';
     countryName.innerText = place.country;
 
+    //Region name
     const regionName = document.createElement('div');
     regionName.className = 'region-name';
     regionName.innerText = place.region;
-
 
     //Action buttons (Inside the div --> travel status icon, travel status button, remove button)
     const actionButtons = document.createElement('div');
@@ -61,18 +66,20 @@ function createCard() {
 
     const removeButton = document.createElement('button');
     removeButton.className = 'remove-button';
+    removeButton.innerText = 'Remove';
 
     if(place.haveTravelled) {
-      travelStatusIcon.src = './images/have-travelled.gif';
+      travelStatusIcon.src = './images/have-travelled.svg';
       travelStatusButton.innerText = 'Mark as plan to travel';
     }
     else {
-      travelStatusIcon.src = './images/plan-to-travel.gif';
+      travelStatusIcon.src = './images/plan-to-travel.svg';
       travelStatusButton.innerText = 'Mark as travelled';
     }
 
     placesGrid.appendChild(placeCard);
-    placeCard.append(cardImage, cityName, countryName, regionName, actionButtons);
+    placeCard.append(cardImage, cityName, placeLocation, actionButtons);
+    placeLocation.append(countryName, regionName);
     actionButtons.append(travelStatusIcon, travelStatusButton, removeButton);
     }
   )

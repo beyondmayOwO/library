@@ -50,14 +50,58 @@ header {
 /* The grid and the card */
 .places-grid {
   display: grid;
-  grid-template: 1fr / repeat(5, 1fr);
-  gap: 20px;
+  grid-template: auto / repeat(3, 320px);
+  gap: 30px;
+  margin: 20px 100px;
 }
 
 .card-image {
-  width: 100px;
+  width: 320px;
 }
 
 .travel-status-icon {
-  width: 20px;
+  width: 23px;
+}
+
+.place-card {
+  background-color: #0a3e5c;
+}
+
+.country-name, .region-name {
+  color: #d1d5db;
+}
+
+.city-name {
+  font-weight: bold;
+  font-size: 23px;
+  color: white;
+  padding: 5px 15px;
+}
+
+.place-location {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 15px;
+}
+
+.travel-status-button, .remove-button {
+  background: none;
+  border: 1px solid #9ca3af;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+  font-size: 14px;
+  padding: 5px 7px;
+}
+
+.travel-status-button:hover, .remove-button:hover {
+  background: #9ca3af;
 }
