@@ -86,3 +86,27 @@ function createCard() {
 }
 
 createCard();
+
+//Select the buttons to show and close the dialog
+const newDestination = document.querySelector('.new-destination');
+const dialog = document.querySelector('dialog');
+const addDestination = document.querySelector('.add-destination');
+const cancelBtn = document.querySelector('.cancel-btn');
+
+//Show the dialog 'New Destination' button is clicked
+newDestination.addEventListener('click', () => {
+  dialog.showModal();
+})
+
+//CLose the dialog when 'cancel' button is clicked
+cancelBtn.addEventListener('click', () => {
+  dialog.close();
+})
+
+
+addDestination.addEventListener('click', () => {
+  //Function that takes the inputs and store the new objects into an array
+  
+  createCard();
+  dialog.close();
+})

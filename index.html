@@ -9,8 +9,33 @@
 <body>
   <header>
     <div class="main-heading">Wanderlist</div>
-    <button class="add-destination">+ New Destination</button>
+    <button class="new-destination">+ New Destination</button>
   </header>
+
+  <dialog>
+    <form>
+      <label for="city">City:</label>
+      <input type="text" name="city" id="city" placeholder="Sydney">
+
+      <label for="country">Country:</label>
+      <input type="text" name="country" id="country" placeholder="Australia">
+
+      <label for="region">Region:</label>
+      <select name="region" id="region">
+        <option value="asia">Asia</option>
+        <option value="africa">Africa</option>
+        <option value="north-america">North America</option>
+        <option value="south-america">South America</option>
+        <option value="antarctica">Antarctica</option>
+        <option value="europe">Europe</option>
+        <option value="Australia">Australia</option>
+        <option value="Eurasia">Eurasia</option>
+      </select>
+
+      <button class="add-destination">Add Destination</button>
+      <button class="cancel-btn">Cancel</button>
+    </form>
+  </dialog>
 
   <div class="places-grid">
 
