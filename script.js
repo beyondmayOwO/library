@@ -19,8 +19,32 @@ const travelList = [
   }
 ];
 
+//Destination object constructor
+function destination(city, country, region, haveTravelled) {
+  this.city = city;
+  this.country = country;
+  this.region = region;
+  this.haveTravelled = haveTravelled;
+}
+
+//Select the form inputs
+const cityInput = document.querySelector('#city');
+const countryInput = document.querySelector('#country');
+const regionInput = document.querySelector('#region');
+
+//Function that takes user inputs and store new objects into an array
+function addPlaceToList() {
+  const place = new destination(cityInput.value, countryInput.value, regionInput.value, false);
+  travelList.push(place);
+}
+
 //Select the grid div
 const placesGrid = document.querySelector('.places-grid');
+
+//Reset the grid display before creating new cards so that they won't doubled
+function resetGridDisplay() {
+  placesGrid.innerText = '';
+}
 
 //Creating card for each place: loop each object in the array, create DOM elements, put the values in corresponding DOM elements
 function createCard() {
@@ -103,10 +127,10 @@ cancelBtn.addEventListener('click', () => {
   dialog.close();
 })
 
-
+//Add place to list and create the card when 'Add Destination' button is clicked
 addDestination.addEventListener('click', () => {
-  //Function that takes the inputs and store the new objects into an array
-  
+  addPlaceToList();
+  resetGridDisplay();
   createCard();
   dialog.close();
 })
