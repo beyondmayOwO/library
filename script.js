@@ -43,12 +43,12 @@ const placesGrid = document.querySelector('.places-grid');
 
 //Reset the grid display before creating new cards so that they won't doubled
 function resetGridDisplay() {
-  placesGrid.innerText = '';
+  placesGrid.textContent = '';
 }
 
 //Creating card for each place: loop each object in the array, create DOM elements, put the values in corresponding DOM elements
 function createCard() {
-  travelList.forEach(place => {
+  travelList.forEach((place, index) => {
     //Inside each card div --> banner image, city name, country name, region name, travel status icon, status button, remove button
     const placeCard = document.createElement('div');
     placeCard.className = 'place-card';
@@ -61,7 +61,7 @@ function createCard() {
     //City name
     const cityName = document.createElement('div');
     cityName.className = 'city-name';
-    cityName.innerText = place.city;
+    cityName.textContent = place.city;
 
     //Place location (Inside the div --> country name, region name)
     const placeLocation = document.createElement('div');
@@ -70,12 +70,12 @@ function createCard() {
     //Country name
     const countryName = document.createElement('div');
     countryName.className = 'country-name';
-    countryName.innerText = place.country;
+    countryName.textContent = place.country;
 
     //Region name
     const regionName = document.createElement('div');
     regionName.className = 'region-name';
-    regionName.innerText = place.region;
+    regionName.textContent = place.region;
 
     //Action buttons (Inside the div --> travel status icon, travel status button, remove button)
     const actionButtons = document.createElement('div');
@@ -90,23 +90,36 @@ function createCard() {
 
     const removeButton = document.createElement('button');
     removeButton.className = 'remove-button';
-    removeButton.innerText = 'Remove';
+    removeButton.textContent = 'Remove';
 
     if(place.haveTravelled) {
       travelStatusIcon.src = './images/have-travelled.svg';
-      travelStatusButton.innerText = 'Mark as plan to travel';
+      travelStatusButton.textContent = 'Mark as plan to travel';
     }
     else {
       travelStatusIcon.src = './images/plan-to-travel.svg';
-      travelStatusButton.innerText = 'Mark as travelled';
+      travelStatusButton.textContent = 'Mark as travelled';
     }
+
+    //When travel status button is clicked, it changes haveTravelled value to the opposite. Then update the UI by resetting and creating card
+    travelStatusButton.addEventListener('click', () => {
+      place.haveTravelled = !place.haveTravelled;
+      resetGridDisplay();
+      createCard();
+    })
+
+    //When 'remove' button is clicked, it removes 1 element at the index of the current object. Then update the UI by resetting and creating card
+    removeButton.addEventListener('click', () => {
+      travelList.splice(index, 1);
+      resetGridDisplay();
+      createCard();
+    })
 
     placesGrid.appendChild(placeCard);
     placeCard.append(cardImage, cityName, placeLocation, actionButtons);
     placeLocation.append(countryName, regionName);
     actionButtons.append(travelStatusIcon, travelStatusButton, removeButton);
-    }
-  )
+  })
 }
 
 createCard();
