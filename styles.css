@@ -142,3 +142,10 @@ label {
 .add-destination, .cancel-btn {
   margin: 20px 12px 0 15px;
 }
+
+.alert {
+  font-size: 12px;
+  color: red;
+  font-weight: bold;
+  display: none;
+}

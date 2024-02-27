@@ -27,15 +27,23 @@ function destination(city, country, region, haveTravelled) {
   this.haveTravelled = haveTravelled;
 }
 
-//Select the form inputs
+//Select the form inputs and span alert
 const cityInput = document.querySelector('#city');
 const countryInput = document.querySelector('#country');
 const regionInput = document.querySelector('#region');
+const alertText = document.querySelector('.alert');
 
-//Function that takes user inputs and store new objects into an array
+//Take user inputs and store new objects into an array
 function addPlaceToList() {
-  const place = new destination(cityInput.value, countryInput.value, regionInput.value, false);
-  travelList.push(place);
+  //Validation for empty fields. [trim() removes whitespace from both ends of a string]
+  if(cityInput.value.trim() === '' || countryInput.value.trim() === '' || regionInput.value === '') {
+    alertText.style.display = 'block';
+  }
+  else {
+    const place = new destination(cityInput.value, countryInput.value, regionInput.value, false);
+    travelList.push(place);
+    dialog.close();
+  }
 }
 
 //Select the grid div
@@ -145,5 +153,4 @@ addDestination.addEventListener('click', () => {
   addPlaceToList();
   resetGridDisplay();
   createCard();
-  dialog.close();
 })

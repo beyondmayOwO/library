@@ -17,12 +17,12 @@
       <ul>
         <li>
           <label for="city">City:</label>
-          <input type="text" name="city" id="city" placeholder="Sydney">
+          <input type="text" name="city" id="city" placeholder="Sydney" required>
         </li>
 
         <li>
           <label for="country">Country:</label>
-          <input type="text" name="country" id="country" placeholder="Australia">
+          <input type="text" name="country" id="country" placeholder="Australia" required>
         </li>
 
         <li>
@@ -38,11 +38,15 @@
             <option value="Eurasia">Eurasia</option>
           </select>
         </li>
+
+        <li>
+          <span class="alert">*Please fill out all fields before adding a new destination.</span>
+        </li>
       </ul>
     </form>
 
-    <button class="add-destination">Add Destination</button>
-    <button class="cancel-btn">Cancel</button>
+      <button class="add-destination">Add Destination</button>
+      <button class="cancel-btn">Cancel</button>
   </dialog>
 
   <div class="places-grid">
