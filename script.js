@@ -19,12 +19,13 @@ const travelList = [
   }
 ];
 
-//Destination object constructor
-function destination(city, country, region, haveTravelled) {
-  this.city = city;
-  this.country = country;
-  this.region = region;
-  this.haveTravelled = haveTravelled;
+class Destination {
+  constructor (city, country, region, haveTravelled) {
+    this.city = city;
+    this.country = country;
+    this.region = region;
+    this.haveTravelled = haveTravelled;
+  }
 }
 
 //Select the form inputs and span alert
@@ -40,7 +41,7 @@ function addPlaceToList() {
     alertText.style.display = 'block';
   }
   else {
-    const place = new destination(cityInput.value, countryInput.value, regionInput.value, false);
+    const place = new Destination(cityInput.value, countryInput.value, regionInput.value, false);
     travelList.push(place);
     dialog.close();
   }
